@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Support Chatbot</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // Check auth state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = JSON.parse(localStorage.getItem('user'));
+      const nav = document.querySelector('nav');
+      const startChatBtn = document.getElementById('startChatBtn');
+      
+      if (user) {
+        // Create welcome element
+        const welcomeEl = document.createElement('span');
+        welcomeEl.className = 'welcome-message';
+        welcomeEl.textContent = `Welcome, ${user.username}`;
+        welcomeEl.style.margin = '0 15px';
+        welcomeEl.style.color = 'white';
+        welcomeEl.style.fontWeight = 'bold';
+        
+        // Create logout button
+        const logoutBtn = document.createElement('a');
+        logoutBtn.href = '#';
+        logoutBtn.className = 'logout-btn';
+        logoutBtn.textContent = 'Logout';
+        logoutBtn.onclick = () => {
+          localStorage.removeItem('user');
+          window.location.reload();
+        };
+        
+        // Insert before login link
+        const loginLink = document.querySelector('a[href="public/login.html"]');
+        nav.insertBefore(welcomeEl, loginLink);
+        nav.insertBefore(logoutBtn, loginLink);
+        
+        // Hide login link
+        loginLink.style.display = 'none';
+
+        // Enable Start Chat button
+        startChatBtn.classList.remove('disabled');
+      } else {
+        // Disable Start Chat button
+        startChatBtn.classList.add('disabled');
+        startChatBtn.onclick = (e) => {
+          e.preventDefault();
+          alert('Please login first to start chatting');
+          window.location.href = 'public/login.html';
+        };
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">Patron AI</div>
+    <nav>
+      <a href="#">Home</a>
+      
+      <a href="public/login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Welcome to AI-Powered Customer Support Chatbot!</h1>
+      <p>Your smart assistant for all support needs!</p>
+      <a href="chatbot.html" class="btn" id="startChatBtn">Start Chat</a>
+    </section>
+    <br>
+
+
+    
+    <section id="features" class="features">
+      <h2>Features</h2>
+      <div class="cards">
+      
+        <div class="card">
+          <h3>AI Powered</h3>
+          <p>Smart replies using advanced AI for accurate answers.</p>
+        </div>
+        <div class="card">
+          <h3>Easy to Use</h3>
+          <p>Simple interface for a seamless experience.</p>
+        </div>
+        <div class="card">
+          <h3>Fast Responses</h3>
+          <p>Get instant replies with low latency using Gemini's powerful backend.</p>
+        </div>
+        <div class="card">
+          <h3>Context Aware</h3>
+          <p>Understands and remembers past prompts for more natural conversations.</p>
+        </div>
+      </div>
+
+      
+      
+    </section>
+
+
+
+    <!-- Safe Image Section with Black Background -->
+    <section style="background-color: black; color: white; display: flex; align-items: center; justify-content: center; padding: 50px;">
+      <div style="flex: 1; text-align: center;">
+    <!-- Heading Text -->
+    <div class="mb-8 flex flex-col items-center justify-center text-center w-full">
+      <h2 style="font-size: 2.0rem; font-weight: 800; text-align: center; margin-bottom: 1.5rem;">
+        Writes, Brainstorms, Edits, And Explores Ideas With You.
+      </h2>
+      <!-- Add your content below if needed -->
+    </div>
+    
+    
+    <!-- Contained Image -->
+    <div class="flex justify-center">
+      <div class="bg-gray-900 rounded-lg p-1 w-full max-w-2xl">
+        <!-- Replace with your image -->
+        
+        <div style="max-width: 100%; overflow: hidden;">
+          <img src="img1.png" style="width: 90%; max-width: 1000px; margin: 0 auto; display: block;">
+             
+      </div>
+    </div>
+
+
+    <!-- Safe Image Section with Black Background -->
+    <section style="background-color: black; color: white; display: flex; align-items: center; justify-content: center; padding: 50px;">
+      <div style="flex: 1; text-align: center;">
+    <!-- Heading Text -->
+    <div class="mb-8 flex flex-col items-center justify-center text-center w-full">
+      <h2 style="font-size: 2.0rem; font-weight: 800; text-align: center; margin-bottom: 1.5rem;">
+        Generate And Debug Code. Automate Repetitive Tasks. Learn New APIs.
+      </h2>
+      <!-- Add your content below if needed -->
+    </div>
+    
+    
+    <!-- Contained Image -->
+    <div class="flex justify-center">
+      <div class="bg-gray-900 rounded-lg p-1 w-full max-w-2xl">
+        <!-- Replace with your image -->
+        
+        <div style="max-width: 100%; overflow: hidden;">
+          <img src="img2.png" style="width: 90%; max-width: 1000px; margin: 0 auto; display: block;">
+             
+      </div>
+    </div>
+
+
+
+    <!-- Safe Image Section with Black Background -->
+    <section style="background-color: black; color: white; display: flex; align-items: center; justify-content: center; padding: 50px;">
+      <div style="flex: 1; text-align: center;">
+    <!-- Heading Text -->
+    <div class="mb-8 flex flex-col items-center justify-center text-center w-full">
+      <h2 style="font-size: 2.0rem; font-weight: 800; text-align: center; margin-bottom: 1.5rem;">
+        Learn Something New. Dive Into A Hobby. Answer Complex Questions.
+      </<h2>
+      <!-- Add your content below if needed -->
+    </div>
+  
+    
+    <!-- Contained Image -->
+    <div class="flex justify-center">
+      <div class="bg-gray-900 rounded-lg p-1 w-full max-w-2xl">
+        <!-- Replace with your image -->
+        
+        <div style="max-width: 100%; overflow: hidden;">
+          <img src="img3.png" style="width: 90%; max-width: 1000px; margin: 0 auto; display: block;">
+             
+      </div>
+    </div>
+
+
+    <!-- Safe Image Section with Black Background -->
+    <section style="background-color: black; color: white; display: flex; align-items: center; justify-content: center; padding: 50px;">
+      <div style="flex: 1; text-align: center;">
+    <!-- Heading Text -->
+    <div class="mb-8 flex flex-col items-center justify-center text-center w-full">
+      <h2 style="font-size: 2.0rem; font-weight: 800; text-align: center; margin-bottom: 1.5rem;">
+        Summarize Meetings. Find New Insights. Increase Productivity.
+      </h2>
+      <!-- Add your content below if needed -->
+    </div>
+    
+    
+    <!-- Contained Image -->
+    <div class="flex justify-center">
+      <div class="bg-gray-900 rounded-lg p-1 w-full max-w-2xl">
+        <!-- Replace with your image -->
+        
+        <div style="max-width: 100%; overflow: hidden;">
+          <img src="img4.png" style="width: 90%; max-width: 1000px; margin: 0 auto; display: block;">
+             
+      </div>
+    </div>
+<br>
+<br>
+<br>
+
+<h2 style="font-size: 2.0rem; font-weight: 800; text-align: center; margin-bottom: 1.5rem;">
+Explore More In Patron AI <aside>
+</h2>
+
+    
+
+  </main>
+
+  <footer>
+    <p>&copy; Build with ❤️ by Yash, Devanand, Neelam and Sania</p>
+  </footer>
+</body>
+</html>

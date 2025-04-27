@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patron AI - Chat</title>
+  <link rel="stylesheet" href="chat.css" />
+  <style>
+    .chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+    }
+    .user-welcome {
+      font-size: 16px;
+      font-weight: normal;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <span>Patron AI 💬</span>
+      <span class="user-welcome" id="headerWelcome"></span>
+    </div>
+
+    <div class="chat-box" id="chat-box">
+      <div class="message bot">
+        <div class="bubble">👋 Hi <span id="chatWelcome"></span>! How can I help you today?</div>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Type your message..." />
+      <button id="send-btn">➤</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get user data from localStorage
+      const user = JSON.parse(localStorage.getItem('user'));
+      console.log("Current user:", user); // Debugging
+
+      // Redirect if not logged in
+      if (!user) {
+        console.log("No user found - redirecting to login");
+        window.location.href = 'index.html';
+        return;
+      }
+
+      // Update welcome messages
+      document.getElementById('headerWelcome').textContent = `Welcome, ${user.username}`;
+      document.getElementById('chatWelcome').textContent = user.username;
+    });
+  </script>
+
+  <script src="chat.js"></script>
+</body>
+</html>
